@@ -1,0 +1,146 @@
+li,
+Link,
+a,
+button {
+  font-family: "Montserrat", "sans-serif";
+  font-weight: 500;
+  text-decoration: none;
+}
+.brand {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: flex-start;
+  justify-content: center;
+  cursor: pointer;
+  order: 0;
+}
+.brand-logo {
+  background: var(--clr-green);
+  color: white;
+  min-width: 2rem;
+  min-height: 2rem;
+  max-height: 2.2rem;
+  max-width: 2.2rem;
+  font-family: "AquireBold", "sans-serif";
+  font-size: calc(10px + 1vmin);
+  font-weight: 700;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.brand h3 {
+  color: var(--clr-green);
+  font-family: "AquireBold", "sans-serif";
+  font-weight: 800;
+  font-style: italic;
+  font-size: calc(10px + 1vmin);
+}
+
+.create__poll {
+  background: transparent;
+  color: var(--clr-green);
+  border: 1px solid var(--clr-green);
+  border-radius: var(--radius);
+  padding: 0.5rem 0.4rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.nav {
+  box-shadow: 0px 4px 4px -4px var(--clr-gray200);
+  padding-bottom: 0.1rem;
+  &__toggle {
+    position: absolute;
+    cursor: pointer;
+    margin: 0rem 1rem;
+    right: 0;
+
+    svg {
+      width: 1.5rem;
+      fill: #425a65;
+    }
+    .close {
+      display: none;
+    }
+    .menu {
+      margin-top: 0.2rem;
+    }
+  }
+  &__checkbox {
+    display: none;
+  }
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    margin: 1rem;
+
+    li {
+      list-style: none;
+      display: none;
+
+      &:first-child {
+        margin-right: auto;
+        display: block;
+      }
+      &:nth-child(1) {
+        margin-right: auto;
+      }
+      .nav-item {
+        text-decoration: none;
+        color: inherit;
+        font-size: 1rem;
+        transition: all 0.3s ease 0s;
+        cursor: pointer;
+        padding: 0.4rem 0.4rem;
+        font-weight: 600;
+
+        &:hover {
+          color: var(--clr-primary-hover);
+        }
+      }
+    }
+    li .active {
+      color: white;
+      background: var(--clr-green);
+      border-radius: var(--radius);
+    }
+  }
+  button:hover {
+    background: var(--clr-primary-hover);
+    color: white;
+  }
+}
+
+#nav__checkbox:checked ~ ul.nav__menu li {
+  display: block;
+  transition: all 500ms ease-in 1s;
+}
+
+#nav__checkbox:checked ~ label.nav__toggle .close {
+  display: block;
+}
+
+#nav__checkbox:checked ~ label.nav__toggle .menu {
+  display: none;
+}
+
+//Desktop View
+@media only screen and(min-width:560px) {
+  .nav {
+    &__toggle {
+      display: none;
+    }
+
+    &__menu {
+      flex-direction: row;
+
+      li {
+        display: block;
+      }
+    }
+  }
+}
